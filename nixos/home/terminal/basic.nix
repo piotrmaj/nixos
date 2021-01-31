@@ -6,6 +6,9 @@ let
 in {
   imports = [
     ./basic/git.nix
+    ./basic/vim.nix
+    ./basic/zsh.nix
+    ./basic/tmux.nix
   ];
 
   home.packages = with pkgs; [
@@ -55,28 +58,6 @@ in {
     # file managing.
     lf = {
       enable = true;
-    };
-
-    # bash replacement.
-    zsh = {
-      enable = true;
-
-      prezto = {
-        enable = true;
-
-        pmodules = [
-          "archive"
-          "directory"
-          "completion"
-          "editor"
-          "environment"
-          "history"
-        ];
-      };
-
-      sessionVariables = {
-        EDITOR = "vim";
-      };
     };
   };
 }

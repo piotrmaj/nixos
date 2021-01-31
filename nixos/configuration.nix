@@ -64,9 +64,10 @@ in {
       source-sans-pro
       source-serif-pro
       font-awesome
+      nerdfonts
       (
         nerdfonts.override {
-          fonts = [ "FiraCode"];
+          fonts = [ "FiraCode" "Meslo" ];
         }
       )
     ];
@@ -89,7 +90,7 @@ in {
       ];
     };
 
-    /*
+    
     xserver = {
       enable = true;
 
@@ -118,7 +119,6 @@ in {
       # Turn caps lock into another ctrl.
       xkbOptions = "ctrl:nocaps";
     };
-    */
   };
 
   virtualisation.docker = {
@@ -211,8 +211,8 @@ in {
 
     imports = [
       ./home/terminal/basic.nix
-      /*./home/desktop/basic.nix
-      ./home/desktop/keys.nix*/
+      ./home/desktop/basic.nix
+      ./home/desktop/keys.nix
     ];
   };
 }

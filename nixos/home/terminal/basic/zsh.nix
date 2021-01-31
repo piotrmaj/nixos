@@ -25,9 +25,9 @@
             ];
         };
 
-        /*oh-my-zsh = {
+        oh-my-zsh = {
             enable = true;
-            theme = "powerlevel10k";
+            # theme = "powerlevel10k";
             # plugins = [ "git" "sudo" "docker" ];
             /*extraConfig = ''
                 source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
@@ -38,10 +38,10 @@
                 source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
                 source ${pkgs.zsh-fast-syntax-highlighting}/share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh
                 ${builtins.readFile ./config/p10k.zsh}
-            '';
-        };*/
+            '';*/
+        };
 
-        /*plugins = [
+        plugins = [
             {
                 name = "powerlevel10k";
                 src = pkgs.zsh-powerlevel10k;
@@ -52,9 +52,10 @@
                 src = lib.cleanSource ./config;
                 file = "p10k.zsh";
             }
-        ];*/
+        ];
         sessionVariables = {
-            EDITOR = "vim";
+          EDITOR = "vim";
+          TERMINAL = [ "alacritty" ];
         };
     };
 }

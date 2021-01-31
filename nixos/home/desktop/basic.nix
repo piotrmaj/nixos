@@ -6,6 +6,7 @@ let
 
 in {
   imports = [
+    ./basic/alacritty.nix
     ./basic/i3.nix
   ];
 

@@ -48,7 +48,12 @@ in {
         "${settings.font.monoFamily} ${settings.font.defaultSize.points}"
       ];
 
-      /*keybindings = {
+      keybindings = lib.mkOptionDefault {
+        # Moving workspaces between screens 
+        "Mod1+p" = "move workspace to output right";
+        "Mod1+Return" = "exec alacritty";
+      };
+        /*
         # Switch to workspace.
         "Mod1+1"   = "workspace $web";
         "Mod1+2"   = "workspace $code";
@@ -104,8 +109,7 @@ in {
 
         # Toggle between stacking/tabbed/split.
         "Mod1+t" = "layout toggle";
-      };*/
-
+        */
       /*gaps = {
         inner = 12;
         outer = 6;

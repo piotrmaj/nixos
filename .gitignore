@@ -3,3 +3,6 @@
 result*
 
 *.swp
+
+packer_cache
+output*

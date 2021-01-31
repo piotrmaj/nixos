@@ -150,15 +150,18 @@ in {
     };
   };
 
-  /*
   # Automount NAS NFS volumes on demand.
   fileSystems = {
-    "/nas/documents" = {
-      device = "192.168.1.200:/mnt/storage/documents";
-      fsType = "nfs";
-      options = [ "x-systemd.automount" "noauto" ];
+    "/nas/git" = {
+      device = "//192.168.0.52/git";
+      fsType = "cifs";
+      options = let
+        # this line prevents hanging on network split
+        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+
+      in ["${automount_opts},credentials=/etc/nixos/smb-secrets"];
     };
-    "/nas/media" = {
+    /*"/nas/media" = {
       device = "192.168.1.200:/mnt/storage/media";
       fsType = "nfs";
       options = [ "x-systemd.automount" "noauto" ];
@@ -167,10 +170,8 @@ in {
       device = "192.168.1.200:/mnt/storage/photos";
       fsType = "nfs";
       options = [ "x-systemd.automount" "noauto" ];
-    };
+    };*/
   };
-  */
-
 
   home-manager.users.root = { pkgs, ... }: {
     nixpkgs = {

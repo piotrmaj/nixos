@@ -15,12 +15,12 @@ in {
     # cat replacement.
     bat = {
       enable = true;
-      config = {
+      /*config = {
         theme = "nord";
       };
       themes = {
         nord = (builtins.readFile ../themes/base_16_nord.tmTheme);
-      };
+      };*/
     };
 
     # environment autoloading.

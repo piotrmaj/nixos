@@ -209,13 +209,10 @@ in {
       */
     };
 
-    /*
     imports = [
       ./home/terminal/basic.nix
-      ./home/desktop/basic.nix
-      
-    ./home/desktop/keys.nix
+      /*./home/desktop/basic.nix
+      ./home/desktop/keys.nix*/
     ];
-    */
   };
 }

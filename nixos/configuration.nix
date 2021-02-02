@@ -50,6 +50,8 @@ in {
     pciutils # pci debugging.
     usbutils # usb debugging.
     libfido2 # fido2/webauthn authentication.
+    unzip #unzip
+    jq # json parser
   ] ++ [
     # X11 utilities.
 
@@ -190,6 +192,7 @@ in {
       overlays = [
         (import ./pkgs/default.nix)
       ];
+      config.allowUnfree = true;
 
      /*
       # Allow certain unfree programs to be installed.

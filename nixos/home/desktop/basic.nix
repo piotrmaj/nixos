@@ -8,6 +8,7 @@ in {
   imports = [
     ./basic/alacritty.nix
     ./basic/i3.nix
+    ./basic/vscode.nix
   ];
 
   /*home.packages = with pkgs; [

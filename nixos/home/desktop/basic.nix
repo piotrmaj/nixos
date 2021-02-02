@@ -11,20 +11,20 @@ in {
     ./basic/vscode.nix
   ];
 
-  /*home.packages = with pkgs; [
-    discord # Voice communication.
-    libreoffice # Spreadsheet & word documents.
-    mpv # Lightweight video player.
-    pinta # Lightweight image editor.
-    postman # API interaction.
-    signal-desktop # Text communication.
-    slack # Text communication.
+  home.packages = with pkgs; [
+   # discord # Voice communication.
+   # libreoffice # Spreadsheet & word documents.
+   # mpv # Lightweight video player.
+   # pinta # Lightweight image editor.
+   # postman # API interaction.
+   # signal-desktop # Text communication.
+   # slack # Text communication.
     spotify # Music player.
-    steam # Video games.
-    sxiv # Lightweight image viewer.
-    zathura # Lightweight pdf viewer.
-    zoom-us # Video communication.
-  ];*/
+   # steam # Video games.
+   # sxiv # Lightweight image viewer.
+   # zathura # Lightweight pdf viewer.
+   # zoom-us # Video communication.
+  ];
 
   # Ensure config gets propogated to user services.
   xsession = {

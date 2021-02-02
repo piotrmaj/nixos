@@ -194,22 +194,20 @@ in {
       ];
       config.allowUnfree = true;
 
-     /*
       # Allow certain unfree programs to be installed.
       config = {
         allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-          "discord"
-          "faac"
-          "postman"
-          "slack"
+         # "discord"
+         # "faac"
+         # "postman"
+         # "slack"
           "spotify"
-          "steam"
-          "steam-original"
-          "steam-runtime"
-          "zoom-us"
+         # "steam"
+         # "steam-original"
+         # "steam-runtime"
+         # "zoom-us"
         ];
       };
-      */
     };
 
     imports = [

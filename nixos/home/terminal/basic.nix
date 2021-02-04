@@ -59,5 +59,14 @@ in {
     lf = {
       enable = true;
     };
+
+    # ssh agent
+    ssh = {
+      enable = true;
+      compression = true;
+      matchBlocks = {
+            "*".identityFile = "~/.ssh/id_maju";
+      };
+    };
   };
 }

@@ -17,8 +17,10 @@ in {
       enable = true;
       vimAlias = true;
       plugins = with pkgs.vimPlugins; [
+        command-t
         gruvbox
         nerdtree
+        vim-nix
       ];
 
       extraConfig = builtins.readFile ./.vimrc;

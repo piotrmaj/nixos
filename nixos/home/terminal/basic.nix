@@ -6,7 +6,6 @@ let
 in {
   imports = [
     ./basic/git.nix
-    ./basic/vim.nix
     ./basic/zsh.nix
     ./basic/tmux.nix
   ];

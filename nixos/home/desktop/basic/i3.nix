@@ -52,8 +52,7 @@ in {
         # Moving workspaces between screens 
         "Mod1+p" = "move workspace to output right";
         "Mod1+Return" = "exec alacritty";
-      };
-        /*
+        
         # Switch to workspace.
         "Mod1+1"   = "workspace $web";
         "Mod1+2"   = "workspace $code";
@@ -65,7 +64,8 @@ in {
         "Mod1+8"   = "workspace $music";
         "Mod1+9"   = "workspace $games";
         "Mod1+Tab" = "workspace back_and_forth";
-
+      };
+/*
         # Move applications to another workspace.
         "Mod1+Shift+1" = "move container to workspace $web";
         "Mod1+Shift+2" = "move container to workspace $code";
@@ -219,6 +219,7 @@ in {
       assigns = {
         "$web" = [
           { class = "^Firefox$"; }
+          { class = "^chromium$"; }
         ];
         "$chat" = [
           { class = "^Slack$"; }

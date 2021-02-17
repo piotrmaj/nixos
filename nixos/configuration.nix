@@ -101,6 +101,7 @@ in {
       };
 
       displayManager = {
+        defaultSession = "none+i3";
         # Skip login since we just unlocked the encrypted drive.
         autoLogin = {
           enable = true;
@@ -214,6 +215,7 @@ in {
       ./home/terminal/basic.nix
       ./home/desktop/basic.nix
       ./home/desktop/keys.nix
+      ./home/programs/default.nix
     ];
   };
 }

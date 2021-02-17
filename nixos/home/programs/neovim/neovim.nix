@@ -13,16 +13,14 @@ let customVimPlugins = {
 };
 
 in {
-    programs.vim = {
-        enable = true;
-        settings = {
-            number = true;
-            expandtab = true;
-          };
-        plugins = with pkgs.vimPlugins // customVimPlugins; [
-          nerdtree
-          omnisharp-vim
-        ];
+    programs.neovim = {
+      enable = true;
+      vimAlias = true;
+      plugins = with pkgs.vimPlugins; [
+        gruvbox
+        nerdtree
+      ];
 
+      extraConfig = builtins.readFile ./.vimrc;
     };
 }

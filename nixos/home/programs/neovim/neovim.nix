@@ -26,7 +26,8 @@ in {
       enable = true;
       vimAlias = true;
       plugins = with pkgs.vimPlugins // customVimPlugins ; [
-        command-t
+        fzf-vim
+        fzfWrapper
         gruvbox
         nerdtree
         vim-nix

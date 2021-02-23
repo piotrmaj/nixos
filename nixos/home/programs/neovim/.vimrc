@@ -3,7 +3,8 @@
 set autochdir
 set autoindent
 set autowriteall
-set colorcolumn=80
+""""" adding strange line on given column - not sure what is it for yet
+"set colorcolumn=80
 set cursorline
 set dictionary+=/usr/share/dict/words
 set expandtab
@@ -65,8 +66,15 @@ let g:gruvbox_contrast_light='soft'
 let g:gruvbox_invert_indent_guides=1
 let g:gruvbox_sign_column='bg0'
 
-"Plug 'command-t'
-nmap <silent> <C-p> <Plug>(CommandT)
+"Plug 'fzf bindings'
+nnoremap <C-p> :GFiles<CR>
+"nnoremap <leader>r :Rg<CR>
+"nnoremap <leader>b :Buffers<CR>
+"nnoremap <leader>e :Files<CR>
+"nnoremap <leader>l :Lines<CR>
+"nnoremap <leader>L :BLines<CR>
+"nnoremap <leader>c :Commits<CR>
+"nnoremap <leader>C :BCommits<CR>
 
 
 """"""

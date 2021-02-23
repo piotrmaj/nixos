@@ -36,6 +36,11 @@ set smarttab
 set splitright
 set termguicolors
 set title
+" setup undodir
+if !isdirectory($HOME."/.vim/undo-dir")
+    call mkdir($HOME."/.vim/undo-dir", "p", 0700)
+endif
+set undodir=$HOME/.vim/undo-dir
 set undofile
 set wildmenu
 set wildmode=longest,list,full

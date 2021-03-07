@@ -84,6 +84,7 @@ nnoremap <C-F> :Ag<CR>
 
 "Plug 'omnisharp-vim'
 let g:OmniSharp_server_path = 'omnisharp'
+let g:OmniSharp_loglevel = 'none' " workaround for log file path being in store
 
 """"""
 "call plug#end()

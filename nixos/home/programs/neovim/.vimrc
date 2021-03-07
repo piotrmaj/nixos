@@ -81,6 +81,8 @@ nnoremap <C-p> :GFiles<CR>
 "nnoremap <leader>c :Commits<CR>
 "nnoremap <leader>C :BCommits<CR>
 
+"Plug 'mileszs/ack.vim'
+nnoremap <C-F> :Ag<CR>
 
 """"""
 "call plug#end()

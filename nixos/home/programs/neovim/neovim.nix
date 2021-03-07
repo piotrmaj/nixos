@@ -33,6 +33,9 @@ in {
         nerdtree
         vim-nix
         vim-nerdtree-sync
+
+        # c#,.net stuff
+        omnisharp-vim
       ];
 
       extraConfig = builtins.readFile ./.vimrc;

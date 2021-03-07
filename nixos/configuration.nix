@@ -54,6 +54,7 @@ in {
     jq # json parser
     silver-searcher # code searching-tool, find in all
     tree # file tree
+    omnisharp-roslyn # required for omnisharp-vim to have c# intellisense and more
   ] ++ [
     # X11 utilities.
 

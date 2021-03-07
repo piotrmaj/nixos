@@ -1,6 +1,5 @@
 """""""""""""""""""""""""""""FLAGS""""""""""""""""""""""""""
 " set statusline+=%F\ %l:%c
-set autochdir
 set autoindent
 set autowriteall
 """"" adding strange line on given column - not sure what is it for yet
@@ -51,7 +50,7 @@ set wildmode=longest,list,full
 "Plug 'scrooloose/nerdtree'
 autocmd StdinReadPre * let s:std_in=1
 " Open NERDTree if no file specified
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Open NERDTree if opening a directory
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 " Close vim if the only window left is NERDTree
@@ -80,9 +79,11 @@ nnoremap <C-p> :GFiles<CR>
 "nnoremap <leader>L :BLines<CR>
 "nnoremap <leader>c :Commits<CR>
 "nnoremap <leader>C :BCommits<CR>
-
-"Plug 'mileszs/ack.vim'
+" fzf is using silver-searcher
 nnoremap <C-F> :Ag<CR>
+
+"Plug 'omnisharp-vim'
+let g:OmniSharp_server_path = 'omnisharp'
 
 """"""
 "call plug#end()

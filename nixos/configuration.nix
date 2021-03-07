@@ -53,7 +53,7 @@ in {
     unzip #unzip
     jq # json parser
     silver-searcher # code searching-tool, find in all
-
+    tree # file tree
   ] ++ [
     # X11 utilities.
 

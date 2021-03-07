@@ -52,6 +52,8 @@ in {
     libfido2 # fido2/webauthn authentication.
     unzip #unzip
     jq # json parser
+    silver-searcher # code searching-tool, find in all
+
   ] ++ [
     # X11 utilities.
 

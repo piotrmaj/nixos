@@ -28,6 +28,7 @@ in {
       plugins = with pkgs.vimPlugins // customVimPlugins ; [
         fzf-vim
         fzfWrapper
+        ack-vim
         gruvbox
         nerdtree
         vim-nix

@@ -19,6 +19,17 @@ let customVimPlugins = {
       sha256 = "14k8yb7z4chs7ql60cj3zqbprdr1fn7phkzbj1lnqzp5dh3j2rnz";
     };
   };
+  asyncomplete-vim = pkgs.vimUtils.buildVimPlugin {
+    pname = "asyncomplete-vim";
+    version = "2021-03-03";
+    src = pkgs.fetchFromGitHub {
+      owner = "prabirshrestha";
+      repo = "asyncomplete.vim";
+      rev = "8e018dee9c5e2205288bda01be0de196b04b7cf2";
+      sha256 = "1ghv6zp3qajd4n9qv3mnxqhczi77qmds2b2iicbl252slvldr604";
+    };
+    meta.homepage = "https://github.com/prabirshrestha/asyncomplete.vim/";
+  };
 };
 
 in {
@@ -33,6 +44,11 @@ in {
         nerdtree
         vim-nix
         vim-nerdtree-sync
+
+        # Linting/error highlighting
+        ale
+        # Autocompletion
+        asyncomplete-vim
 
         # c#,.net stuff
         omnisharp-vim

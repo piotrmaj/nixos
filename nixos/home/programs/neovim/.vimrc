@@ -43,6 +43,10 @@ set undodir=$HOME/.vim/undo-dir
 set undofile
 set wildmenu
 set wildmode=longest,list,full
+" autocompleteion etc
+set completeopt=menuone,noinsert,noselect ",popuphidden
+"set completepopup=highlight:Pmenu,border:off
+"set completeopt=longest,menuone,preview
 
 """""""""""""""""""""""""""PLUGINS"""""""""""""""""""""""""""""
 
@@ -85,6 +89,15 @@ nnoremap <C-F> :Ag<CR>
 "Plug 'omnisharp-vim'
 let g:OmniSharp_server_path = 'omnisharp'
 let g:OmniSharp_loglevel = 'none' " workaround for log file path being in store
+
+"Plug 'ALE'
+let g:ale_linters = { 'cs': ['OmniSharp'] }
+let g:ale_lint_on_text_changed = 'always'
+
+" Asyncomplete: {{{
+let g:asyncomplete_auto_popup = 1
+let g:asyncomplete_auto_completeopt = 0
+" }}}
 
 """"""
 "call plug#end()

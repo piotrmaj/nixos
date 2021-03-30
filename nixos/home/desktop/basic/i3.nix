@@ -20,10 +20,11 @@ in {
   ];
 
   services = {
-    screen-locker = {
-      enable = true;
-      lockCmd = "${lib.getBin pkgs.i3lock-color}/bin/i3lock-color -n -c 000000";
-    };
+    # for now disable screen-locker
+    #screen-locker = {
+    #  enable = true;
+    #  lockCmd = "${lib.getBin pkgs.i3lock-color}/bin/i3lock-color -n -c 000000";
+    #};
   };
 
   xsession.windowManager.i3 = {

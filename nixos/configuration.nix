@@ -55,6 +55,7 @@ in {
     silver-searcher # code searching-tool, find in all
     tree # file tree
     omnisharp-roslyn # required for omnisharp-vim to have c# intellisense and more
+    docker_compose # for running docker-compose
   ] ++ [
     # X11 utilities.
 

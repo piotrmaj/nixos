@@ -8,7 +8,7 @@ in {
   system.stateVersion = "20.09";
 
   imports = [
-    <home-manager/nixos>
+    # <home-manager/nixos>
     ./xserver/xserver.nix
   ];
 
@@ -39,6 +39,13 @@ in {
     networkmanager = {
       enable = true;
     };
+  };
+
+  nix = {
+    package = pkgs.nixUnstable;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
   };
 
   environment.systemPackages = with pkgs; [
@@ -140,46 +147,40 @@ in {
     };*/
   };
 
-  home-manager.users.root = { pkgs, ... }: {
-    nixpkgs = {
-      overlays = [
-        (import ./pkgs/default.nix)
-      ];
-    };
+  # Let Home Manager install and manage itself
+  #programs.home-manger-enable = true;
+  home-manager.useGlobalPkgs = true;
 
-    /*imports = [
-      ./home/terminal/basic.nix
-    ];*/
-  };
+  home-manager.users.${settings.user.username} =  {
+    #programs.home-manger.enable = true;
+    #home.username = "maju";
+    # nixpkgs = {
+    #   overlays = [
+    #     (import ./pkgs/default.nix)
+    #   ];
+    #   config.allowUnfree = true;
 
-  home-manager.users.${settings.user.username} = { ... }: {
-    nixpkgs = {
-      overlays = [
-        (import ./pkgs/default.nix)
-      ];
-      config.allowUnfree = true;
+    #   # Allow certain unfree programs to be installed.
+    #   config = {
+    #     allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    #      # "discord"
+    #      # "faac"
+    #      # "postman"
+    #      # "slack"
+    #       "spotify"
+    #      # "steam"
+    #      # "steam-original"
+    #      # "steam-runtime"
+    #      # "zoom-us"
+    #     ];
+    #   };
+    # };
 
-      # Allow certain unfree programs to be installed.
-      config = {
-        allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-         # "discord"
-         # "faac"
-         # "postman"
-         # "slack"
-          "spotify"
-         # "steam"
-         # "steam-original"
-         # "steam-runtime"
-         # "zoom-us"
-        ];
-      };
-    };
-
-    imports = [
-      ./home/terminal/basic.nix
-      ./home/desktop/basic.nix
-      ./home/desktop/keys.nix
-      ./home/programs/default.nix
-    ];
+    # imports = [
+    #   ./home/terminal/basic.nix
+    #   ./home/desktop/basic.nix
+    #   ./home/desktop/keys.nix
+    #   ./home/programs/default.nix
+    # ];
   };
 }

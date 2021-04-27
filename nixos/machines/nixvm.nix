@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports = [
-    ../configuration.nix
-  ];
+  # imports = [
+  #   ../configuration.nix
+  # ];
 
   boot = {
     initrd = {

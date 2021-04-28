@@ -15,36 +15,50 @@
 
     ];
 
-  boot = {
-    initrd = {
-      availableKernelModules = [
-        "ata_piix"
-        "ahci"
-        "sd_mod"
-        "sr_mod"
-      ];
-    };
-
-    loader = {
-      systemd-boot = {
-        enable = true;
-      };
-    };
-  };
-
-  fileSystems."/" = {
-    device = "/dev/disk/by-label/nixos";
-    fsType = "ext4";
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-label/boot";
-    fsType = "vfat";
-  };
-
-  nix.maxJobs = lib.mkDefault 2;
-
-  virtualisation.virtualbox.guest.enable = true;
+  boot.loader.systemd-boot.enable = true; # (for UEFI systems only)
+  fileSystems."/".device = "/dev/disk/by-label/nixos";
+  services.sshd.enable = true;
 
   networking.hostName = "nixvm";
+
+  # nixpkgs.overlays = [ inputs.nur.overlay ];
+
+  # environment.systemPackages = with pkgs; [
+  #   pkgs.nur.repos.mic92.hello-nur
+  # ];
+
+
+
+  # boot = {
+  #   initrd = {
+  #     availableKernelModules = [
+  #       "ata_piix"
+  #       "ahci"
+  #       "sd_mod"
+  #       "sr_mod"
+  #     ];
+  #   };
+
+  #   loader = {
+  #     systemd-boot = {
+  #       enable = true;
+  #     };
+  #   };
+  # };
+
+  # fileSystems."/" = {
+  #   device = "/dev/disk/by-label/nixos";
+  #   fsType = "ext4";
+  # };
+
+  # fileSystems."/boot" = {
+  #   device = "/dev/disk/by-label/boot";
+  #   fsType = "vfat";
+  # };
+
+  # nix.maxJobs = lib.mkDefault 2;
+
+  # virtualisation.virtualbox.guest.enable = true;
+
+  # networking.hostName = "nixvm";
 }

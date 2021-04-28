@@ -2,10 +2,13 @@
   description = "A very basic flake";
 
   inputs = {
-    home-manager.url = "github:nix-community/home-manager";
+    nixpkgs. url = "github:nixos/nixpkgs/nixos-unstable";
+    #home-manager.url = "github:nix-community/home-manager";
   };
 
-  outputs = {self, home-manager, nixpkgs, ... }: {
+  #outputs = {self, home-manager, nixpkgs, ... }: {
+    
+  outputs = {self, nixpkgs, ... }: {
 
     # packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
 
@@ -15,8 +18,8 @@
        system = "x86_64-linux";
        modules = [ 
           ./machines/nixvm.nix
-          home-manager.nixosModules.home-manager
-          ./configuration.nix
+          #home-manager.nixosModules.home-manager
+          #./configuration.nix
           # {
           #   home-manager.useGlobalPkgs = true;
           #   home-manager.useUserPackages = true;

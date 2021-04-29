@@ -9,7 +9,7 @@ in {
 
   imports = [
     # <home-manager/nixos>
-    ./xserver/xserver.nix
+    #./xserver/xserver.nix
   ];
 
   nixpkgs = {

@@ -25,52 +25,52 @@ in {
 
   time.timeZone = "Europe/Warsaw";
 
-  hardware = {
-    # Enable sound.
-    pulseaudio = {
-      enable = true;
-      package = pkgs.pulseaudioFull;
-      support32Bit = true;
-    };
-  };
+  # hardware = {
+  #   # Enable sound.
+  #   pulseaudio = {
+  #     enable = true;
+  #     package = pkgs.pulseaudioFull;
+  #     support32Bit = true;
+  #   };
+  # };
 
-  networking = {
-    # Detect and manage network connections.
-    networkmanager = {
-      enable = true;
-    };
-  };
+  # networking = {
+  #   # Detect and manage network connections.
+  #   networkmanager = {
+  #     enable = true;
+  #   };
+  # };
 
-  nix = {
-    package = pkgs.nixUnstable;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-  };
+  # nix = {
+  #   package = pkgs.nixUnstable;
+  #   extraOptions = ''
+  #     experimental-features = nix-command flakes
+  #   '';
+  # };
 
-  environment.systemPackages = with pkgs; [
-    # Command line utilities.
-    exfat # mount exfat drives.
-    ethtool # ethernet debugging.
-    glxinfo # gfx debugging.
-    lm_sensors # system sensor access.
-    nfs-utils # mount nfs drives.
-    pciutils # pci debugging.
-    usbutils # usb debugging.
-    libfido2 # fido2/webauthn authentication.
-    unzip #unzip
-    jq # json parser
-    silver-searcher # code searching-tool, find in all
-    tree # file tree
-    omnisharp-roslyn # required for omnisharp-vim to have c# intellisense and more
-    docker_compose # for running docker-compose
-  ] ++ [
-    # X11 utilities.
+  # environment.systemPackages = with pkgs; [
+  #   # Command line utilities.
+  #   exfat # mount exfat drives.
+  #   ethtool # ethernet debugging.
+  #   glxinfo # gfx debugging.
+  #   lm_sensors # system sensor access.
+  #   nfs-utils # mount nfs drives.
+  #   pciutils # pci debugging.
+  #   usbutils # usb debugging.
+  #   libfido2 # fido2/webauthn authentication.
+  #   unzip #unzip
+  #   jq # json parser
+  #   silver-searcher # code searching-tool, find in all
+  #   tree # file tree
+  #   omnisharp-roslyn # required for omnisharp-vim to have c# intellisense and more
+  #   docker_compose # for running docker-compose
+  # ] ++ [
+  #   # X11 utilities.
 
-    arandr # Detect and manage multiple monitors.
-    chromium # Web browser.
-    pavucontrol # Detect and manage audio devices.
-  ];
+  #   arandr # Detect and manage multiple monitors.
+  #   chromium # Web browser.
+  #   pavucontrol # Detect and manage audio devices.
+  # ];
 
   fonts = {
     fonts = with pkgs; [
@@ -147,40 +147,5 @@ in {
     };*/
   };
 
-  # Let Home Manager install and manage itself
-  #programs.home-manger-enable = true;
-  home-manager.useGlobalPkgs = true;
-
-  home-manager.users.${settings.user.username} =  {
-    #programs.home-manger.enable = true;
-    #home.username = "maju";
-    # nixpkgs = {
-    #   overlays = [
-    #     (import ./pkgs/default.nix)
-    #   ];
-    #   config.allowUnfree = true;
-
-    #   # Allow certain unfree programs to be installed.
-    #   config = {
-    #     allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    #      # "discord"
-    #      # "faac"
-    #      # "postman"
-    #      # "slack"
-    #       "spotify"
-    #      # "steam"
-    #      # "steam-original"
-    #      # "steam-runtime"
-    #      # "zoom-us"
-    #     ];
-    #   };
-    # };
-
-    # imports = [
-    #   ./home/terminal/basic.nix
-    #   ./home/desktop/basic.nix
-    #   ./home/desktop/keys.nix
-    #   ./home/programs/default.nix
-    # ];
-  };
+  
 }

@@ -1,63 +1,29 @@
 {
-  description = "A very basic flake";
+  description = "piotrmaj's nixos setup powered by flake";
 
   inputs = {
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:nix-community/home-manager/release-20.09";
     nixpkgs. url = "github:nixos/nixpkgs/nixos-20.09";
   };
 
-  outputs = {self, home-manager, nixpkgs, ... }: {
-
-    # packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
-
-    # defaultPackage.x86_64-linux = self.packages.x86_64-linux.hello;
-
-    nixosConfigurations.nixvm = nixpkgs.lib.nixosSystem {
-       system = "x86_64-linux";
-       modules = [ 
-          ./machines/nixvm.nix
-          home-manager.nixosModules.home-manager
-          ./configuration.nix
-          # {
-          #   home-manager.useGlobalPkgs = true;
-          #   home-manager.useUserPackages = true;
-          #   #home-manager.users.jdoe = import ./home.nix;
-          #   home-manager.users.maju = {
-
-          #     programs.home-manager.enable = true;
-          #     home.username = "maju";
-          #     home.homeDirectory = "/home/maju";
-          #     /*nixpkgs = {
-          #       overlays = [
-          #         (import ./pkgs/default.nix)
-          #       ];
-          #       config.allowUnfree = true;
-
-          #       # Allow certain unfree programs to be installed.
-          #       config = {
-          #         allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-          #         # "discord"
-          #         # "faac"
-          #         # "postman"
-          #         # "slack"
-          #           "spotify"
-          #         # "steam"
-          #         # "steam-original"
-          #         # "steam-runtime"
-          #         # "zoom-us"
-          #         ];
-          #       };
-          #     };*/
-
-          #     # imports = [
-          #     #   ./home/terminal/basic.nix
-          #     #   ./home/desktop/basic.nix
-          #     #   ./home/desktop/keys.nix
-          #     #   ./home/programs/default.nix
-          #     # ];
-          #   };
-          # } 
-      ];
+  outputs = {self, home-manager, nixpkgs, ... }: 
+    let
+      system = "x86_64-linux";
+      settings = import ./settings.nix;
+    in
+    {
+      nixosConfigurations.nixvm = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [ 
+            ./machines/nixvm.nix
+            ./configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.${settings.user.username} = import ./home.nix;
+            }
+        ];
+      };
     };
-  };
 }

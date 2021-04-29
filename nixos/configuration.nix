@@ -25,28 +25,28 @@ in {
 
   time.timeZone = "Europe/Warsaw";
 
-  # hardware = {
-  #   # Enable sound.
-  #   pulseaudio = {
-  #     enable = true;
-  #     package = pkgs.pulseaudioFull;
-  #     support32Bit = true;
-  #   };
-  # };
+  hardware = {
+    # Enable sound.
+    pulseaudio = {
+      enable = true;
+      package = pkgs.pulseaudioFull;
+      support32Bit = true;
+    };
+  };
 
-  # networking = {
-  #   # Detect and manage network connections.
-  #   networkmanager = {
-  #     enable = true;
-  #   };
-  # };
+  networking = {
+    # Detect and manage network connections.
+    networkmanager = {
+      enable = true;
+    };
+  };
 
-  # nix = {
-  #   package = pkgs.nixUnstable;
-  #   extraOptions = ''
-  #     experimental-features = nix-command flakes
-  #   '';
-  # };
+  nix = {
+    package = pkgs.nixUnstable;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+  };
 
   # environment.systemPackages = with pkgs; [
   #   # Command line utilities.

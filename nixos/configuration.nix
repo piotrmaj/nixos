@@ -48,7 +48,7 @@ in {
     '';
   };
 
-  # environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
   #   # Command line utilities.
   #   exfat # mount exfat drives.
   #   ethtool # ethernet debugging.
@@ -59,7 +59,7 @@ in {
   #   usbutils # usb debugging.
   #   libfido2 # fido2/webauthn authentication.
   #   unzip #unzip
-  #   jq # json parser
+     jq # json parser
   #   silver-searcher # code searching-tool, find in all
   #   tree # file tree
   #   omnisharp-roslyn # required for omnisharp-vim to have c# intellisense and more
@@ -70,7 +70,7 @@ in {
   #   arandr # Detect and manage multiple monitors.
   #   chromium # Web browser.
   #   pavucontrol # Detect and manage audio devices.
-  # ];
+  ];
 
   fonts = {
     fonts = with pkgs; [

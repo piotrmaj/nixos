@@ -2,7 +2,7 @@
   description = "piotrmaj's nixos setup powered by flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/gnome-40";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

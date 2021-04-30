@@ -2,19 +2,7 @@
 
 set -ex
 
-nix-shell -p nixUnstable git \
-    --command 'cd /mnt/etc/github/nixos && sudo nixos-install --flake ".#nixvm" --no-root-passwd'
-
-#sudo rm -rf /mnt/etc/github/nixos/
-#sudo git clone --branch flakes https://github.com/piotrmaj/nixos
-#cd nixos
-#sudo nixos-install --flake ".#nixvm"
-
-
-#sleep 5h
-
-# # Select the machine to install.
-# ln -s /mnt/etc/github/nixos/machines/nixvm.nix /mnt/etc/nixos/configuration.nix
-
-# # 🚀
-# sudo -i nixos-install --no-root-passwd
+MACHINE_NAME="nixvm"
+cd /mnt/etc/github/nixos
+# 🚀
+nix-shell -p nixUnstable git --command "sudo nixos-install --flake \".#$MACHINE_NAME\" --impure --no-root-passwd --root /mnt"

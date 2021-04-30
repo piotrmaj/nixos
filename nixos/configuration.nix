@@ -8,9 +8,15 @@ in {
   system.stateVersion = "20.09";
 
   imports = [
-    # <home-manager/nixos>
     ./xserver/xserver.nix
   ];
+
+  nix = {
+    package = pkgs.nixUnstable;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+  };
 
   nixpkgs = {
     overlays = [
@@ -41,13 +47,6 @@ in {
     };
   };
 
-  nix = {
-    package = pkgs.nixUnstable;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-  };
-
   environment.systemPackages = with pkgs; [
     # Command line utilities.
     exfat # mount exfat drives.
@@ -59,7 +58,7 @@ in {
     usbutils # usb debugging.
     libfido2 # fido2/webauthn authentication.
     unzip #unzip
-     jq # json parser
+    jq # json parser
     silver-searcher # code searching-tool, find in all
     tree # file tree
     omnisharp-roslyn # required for omnisharp-vim to have c# intellisense and more
@@ -134,17 +133,5 @@ in {
 
       in ["${automount_opts},credentials=/etc/nixos/smb-secrets"];
     };
-    /*"/nas/media" = {
-      device = "192.168.1.200:/mnt/storage/media";
-      fsType = "nfs";
-      options = [ "x-systemd.automount" "noauto" ];
-    };
-    "/nas/photos" = {
-      device = "192.168.1.200:/mnt/storage/photos";
-      fsType = "nfs";
-      options = [ "x-systemd.automount" "noauto" ];
-    };*/
   };
-
-  
 }

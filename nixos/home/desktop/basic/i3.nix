@@ -27,6 +27,9 @@ in {
     #};
   };
 
+  # Ensure config gets propogated to user services.
+  xsession.enable = true;
+
   xsession.windowManager.i3 = {
     enable = true;
   

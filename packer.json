@@ -3,8 +3,8 @@
   "builders": [{
     "type": "virtualbox-iso",
     "guest_os_type": "Other_64",
-    "iso_url": "https://channels.nixos.org/nixos-20.09/latest-nixos-minimal-x86_64-linux.iso",
-    "iso_checksum": "f1164cbfa3f2adc1f833bf8c2345c69baba9674b452d1c137513f8a437aa489d",
+    "iso_url": "https://channels.nixos.org/nixos-unstable/latest-nixos-minimal-x86_64-linux.iso",
+    "iso_checksum": "421f95ca0f28e848fd022f9e1918d0ea320df0068c088c21f54b0f6f28a2a54e",
     "disk_size": 50000,
     "boot_wait": "5s",
     "boot_command": [
@@ -19,13 +19,13 @@
     "iso_interface": "sata",
     "hard_drive_interface": "sata",
     "hard_drive_nonrotational": "true",
-    "gfx_controller": "vmsvga",
     "vboxmanage": [
       ["modifyvm", "{{.Name}}", "--memory", 8000],
       ["modifyvm", "{{.Name}}", "--cpus", 4],
       ["modifyvm", "{{.Name}}", "--firmware", "efi"],
       ["modifyvm", "{{.Name}}", "--paravirtprovider", "kvm"],
-      ["modifyvm", "{{.Name}}", "--nictype1", "virtio"]
+      ["modifyvm", "{{.Name}}", "--nictype1", "virtio"],
+      ["modifyvm", "{{.Name}}", "--graphicscontroller", "vmsvga"]
     ],
     "vm_name": "nix_vm",
     "ssh_username": "nixos",

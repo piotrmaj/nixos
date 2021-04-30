@@ -9,7 +9,7 @@ in {
 
   imports = [
     # <home-manager/nixos>
-    #./xserver/xserver.nix
+    ./xserver/xserver.nix
   ];
 
   nixpkgs = {
@@ -49,27 +49,26 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
-  #   # Command line utilities.
-  #   exfat # mount exfat drives.
-  #   ethtool # ethernet debugging.
-  #   glxinfo # gfx debugging.
-  #   lm_sensors # system sensor access.
-  #   nfs-utils # mount nfs drives.
-  #   pciutils # pci debugging.
-  #   usbutils # usb debugging.
-  #   libfido2 # fido2/webauthn authentication.
-  #   unzip #unzip
+    # Command line utilities.
+    exfat # mount exfat drives.
+    ethtool # ethernet debugging.
+    glxinfo # gfx debugging.
+    lm_sensors # system sensor access.
+    nfs-utils # mount nfs drives.
+    pciutils # pci debugging.
+    usbutils # usb debugging.
+    libfido2 # fido2/webauthn authentication.
+    unzip #unzip
      jq # json parser
-  #   silver-searcher # code searching-tool, find in all
-  #   tree # file tree
-  #   omnisharp-roslyn # required for omnisharp-vim to have c# intellisense and more
-  #   docker_compose # for running docker-compose
-  # ] ++ [
-  #   # X11 utilities.
-
-  #   arandr # Detect and manage multiple monitors.
-  #   chromium # Web browser.
-  #   pavucontrol # Detect and manage audio devices.
+    silver-searcher # code searching-tool, find in all
+    tree # file tree
+    omnisharp-roslyn # required for omnisharp-vim to have c# intellisense and more
+    docker_compose # for running docker-compose
+  ] ++ [
+    # X11 utilities.
+    arandr # Detect and manage multiple monitors.
+    chromium # Web browser.
+    pavucontrol # Detect and manage audio devices.
   ];
 
   fonts = {

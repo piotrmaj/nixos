@@ -40,7 +40,7 @@
 
   nix.maxJobs = lib.mkDefault 2;
 
-  #virtualisation.virtualbox.guest.enable = true;
+  virtualisation.virtualbox.guest.enable = true;
 
   networking.hostName = "nixvm";
 }

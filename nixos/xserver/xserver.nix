@@ -1,6 +1,6 @@
 {
   imports = [
-    #./gnome.nix
-    ./i3.nix
+    ./gnome.nix
+    #./i3.nix
   ];
 }

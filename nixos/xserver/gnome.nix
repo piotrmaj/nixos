@@ -18,7 +18,6 @@ in {
       enable = true;
 
       desktopManager = {
-        xterm.enable = false;
         gnome3.enable = true;
       };
 
@@ -29,10 +28,7 @@ in {
           user = settings.user.username;
         };
 
-        gdm ={
-          enable = true;
-          wayland = false;
-        };
+        lightdm.enable = true;
       };
 
       # Turn caps lock into another ctrl.

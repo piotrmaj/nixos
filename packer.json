@@ -1,63 +1,65 @@
 
 {
-    "builders": [{
-      "type": "virtualbox-iso",
-      "guest_os_type": "Other_64",
-      "iso_url": "https://channels.nixos.org/nixos-20.09/latest-nixos-minimal-x86_64-linux.iso",
+  "builders": [{
+    "type": "virtualbox-iso",
+    "guest_os_type": "Other_64",
+    "iso_url": "https://channels.nixos.org/nixos-20.09/latest-nixos-minimal-x86_64-linux.iso",
     "iso_checksum": "f1164cbfa3f2adc1f833bf8c2345c69baba9674b452d1c137513f8a437aa489d",
-      "disk_size": 50000,
-      "boot_wait": "5s",
-      "boot_command": [
-        "<enter>",
-        "<wait40s>",
-        "passwd<enter><wait>",
-        "secret<enter><wait>",
-        "secret<enter><wait>",
+    "disk_size": 50000,
+    "boot_wait": "5s",
+    "boot_command": [
+      "<enter>",
+      "<wait40s>",
+      "passwd<enter><wait>",
+      "secret<enter><wait>",
+      "secret<enter><wait>",
       "systemctl start sshd<enter><wait5s>",
-        "secret<enter><wait>"
-      ],
-      "iso_interface": "sata",
-      "hard_drive_interface": "sata",
-      "hard_drive_nonrotational": "true",
-      "vboxmanage": [
-        ["modifyvm", "{{.Name}}", "--memory", 8000],
-        ["modifyvm", "{{.Name}}", "--cpus", 4],
-        ["modifyvm", "{{.Name}}", "--firmware", "efi"],
-        ["modifyvm", "{{.Name}}", "--paravirtprovider", "kvm"],
-        ["modifyvm", "{{.Name}}", "--nictype1", "virtio"]
-      ],
-      "vm_name": "nix_vm",
-      "ssh_username": "nixos",
-      "ssh_password": "secret",
+      "secret<enter><wait>"
+    ],
+    "iso_interface": "sata",
+    "hard_drive_interface": "sata",
+    "hard_drive_nonrotational": "true",
+    "gfx_controller": "vmsvga",
+    "vboxmanage": [
+      ["modifyvm", "{{.Name}}", "--memory", 8000],
+      ["modifyvm", "{{.Name}}", "--cpus", 4],
+      ["modifyvm", "{{.Name}}", "--firmware", "efi"],
+      ["modifyvm", "{{.Name}}", "--paravirtprovider", "kvm"],
+      ["modifyvm", "{{.Name}}", "--nictype1", "virtio"]
+    ],
+    "vm_name": "nix_vm",
+    "ssh_username": "nixos",
+    "ssh_password": "secret",
     "shutdown_command": "sudo shutdown -P now",
-      "post_shutdown_delay": "10s"
-    }],
-    "provisioners": [
-      {
-        "type": "shell",
-        "environment_vars": [
-          "INSTALL_DRIVE_NAME=/dev/sda"
-        ],
-        "scripts": [
-          "bin/prepare-uefi-filesystem.sh"
-        ]
-      },
-      {
-        "type": "file",
-        "source": "nixos/",
-        "destination": "/mnt/etc/github/nixos/"
-      },
-      {
-        "type": "shell",
-        "scripts": [
-          "bin/install-channels.sh"
-        ]
-      },
-      {
-        "type": "shell",
-        "scripts": [
-          "bin/install-nixos.sh"
-        ]
-      }
-    ]
-  }
+    "post_shutdown_delay": "10s"
+  }],
+  "provisioners": [
+    {
+      "type": "shell",
+      "environment_vars": [
+        "INSTALL_DRIVE_NAME=/dev/sda"
+      ],
+      "scripts": [
+        "bin/prepare-uefi-filesystem.sh"
+      ]
+    },
+    {
+      "type": "file",
+      "source": "nixos/",
+      "destination": "/mnt/etc/github/nixos/"
+    },
+    {
+      "type": "shell",
+      "scripts": [
+        "bin/install-channels.sh"
+      ]
+    },
+    {
+      "type": "shell",
+      "scripts": [
+        "bin/install-nixos.sh"
+      ],
+      "expect_disconnect": true
+    }
+  ]
+}

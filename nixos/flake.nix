@@ -2,8 +2,11 @@
   description = "piotrmaj's nixos setup powered by flake";
 
   inputs = {
-    home-manager.url = "github:nix-community/home-manager/release-20.09";
-    nixpkgs. url = "github:nixos/nixpkgs/nixos-20.09";
+    nixpkgs.url = "github:NixOS/nixpkgs/gnome-40";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {self, home-manager, nixpkgs, ... }: 

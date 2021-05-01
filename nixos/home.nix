@@ -1,32 +1,29 @@
 { pkgs, ...}:
 {
   # Let Home Manager install and manage itself
-  #programs.home-manger-enable = true;
-  # home-manager.useGlobalPkgs = true;
+  programs.home-manger-enable = true;
 
-  # home-manager.users.${settings.user.username} =  {
-  #programs.home-manger.enable = true;
-#   nixpkgs = {
-#         overlays = [
-#         (import ./pkgs/default.nix)
-#         ];
-#         config.allowUnfree = true;
+  nixpkgs = {
+        overlays = [
+        (import ./pkgs/default.nix)
+        ];
+        config.allowUnfree = true;
 
-#         # Allow certain unfree programs to be installed.
-#         config = {
-#         allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-#             # "discord"
-#             # "faac"
-#             # "postman"
-#             # "slack"
-#             "spotify"
-#             # "steam"
-#             # "steam-original"
-#             # "steam-runtime"
-#             # "zoom-us"
-#         ];
-#         };
-#     };
+        # Allow certain unfree programs to be installed.
+        config = {
+          allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+              # "discord"
+              # "faac"
+              # "postman"
+              # "slack"
+              "spotify"
+              # "steam"
+              # "steam-original"
+              # "steam-runtime"
+              # "zoom-us"
+          ];
+        };
+    };
 
   imports = [
     ./home/terminal/basic.nix

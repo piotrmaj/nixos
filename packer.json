@@ -24,8 +24,8 @@
         ["modifyvm", "{{.Name}}", "--cpus", 4],
         ["modifyvm", "{{.Name}}", "--firmware", "efi"],
         ["modifyvm", "{{.Name}}", "--paravirtprovider", "kvm"],
-        ["modifyvm", "{{.Name}}", "--nictype1", "virtio"],
-        ["modifyvm", "{{.Name}}", "--graphicscontroller", "vmsvga"]
+        ["modifyvm", "{{.Name}}", "--graphicscontroller", "vmsvga"],
+        ["modifyvm", "{{.Name}}", "--nictype1", "virtio"]
       ],
       "vm_name": "nix_vm",
       "ssh_username": "nixos",
@@ -58,8 +58,7 @@
         "type": "shell",
         "scripts": [
           "bin/install-nixos.sh"
-        ],
-        "expect_disconnect": true
+        ]
       }
     ]
-}
+  }

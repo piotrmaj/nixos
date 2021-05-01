@@ -1,38 +1,69 @@
-
 {
-  "builders": [{
-    "type": "virtualbox-iso",
-    "guest_os_type": "Other_64",
-    "iso_url": "https://channels.nixos.org/nixos-unstable/latest-nixos-minimal-x86_64-linux.iso",
-    "iso_checksum": "421f95ca0f28e848fd022f9e1918d0ea320df0068c088c21f54b0f6f28a2a54e",
-    "disk_size": 50000,
-    "boot_wait": "5s",
-    "boot_command": [
-      "<enter>",
-      "<wait40s>",
-      "passwd<enter><wait>",
-      "secret<enter><wait>",
-      "secret<enter><wait>",
-      "systemctl start sshd<enter><wait5s>",
-      "secret<enter><wait>"
-    ],
-    "iso_interface": "sata",
-    "hard_drive_interface": "sata",
-    "hard_drive_nonrotational": "true",
-    "vboxmanage": [
-      ["modifyvm", "{{.Name}}", "--memory", 8000],
-      ["modifyvm", "{{.Name}}", "--cpus", 4],
-      ["modifyvm", "{{.Name}}", "--firmware", "efi"],
-      ["modifyvm", "{{.Name}}", "--paravirtprovider", "kvm"],
-      ["modifyvm", "{{.Name}}", "--nictype1", "virtio"],
-      ["modifyvm", "{{.Name}}", "--graphicscontroller", "vmsvga"]
-    ],
-    "vm_name": "nix_vm",
-    "ssh_username": "nixos",
-    "ssh_password": "secret",
-    "shutdown_command": "sudo shutdown -P now",
-    "post_shutdown_delay": "10s"
-  }],
+  "builders": [
+    {
+      "type": "virtualbox-iso",
+      "guest_os_type": "Other_64",
+      "iso_url": "https://channels.nixos.org/nixos-unstable/latest-nixos-minimal-x86_64-linux.iso",
+      "iso_checksum": "421f95ca0f28e848fd022f9e1918d0ea320df0068c088c21f54b0f6f28a2a54e",
+      "disk_size": 50000,
+      "boot_wait": "5s",
+      "boot_command": [
+        "<enter>",
+        "<wait40s>",
+        "passwd<enter><wait>",
+        "secret<enter><wait>",
+        "secret<enter><wait>",
+        "systemctl start sshd<enter><wait5s>",
+        "secret<enter><wait>"
+      ],
+      "iso_interface": "sata",
+      "hard_drive_interface": "sata",
+      "hard_drive_nonrotational": "true",
+      "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          8000
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--cpus",
+          4
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--firmware",
+          "efi"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--paravirtprovider",
+          "kvm"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--nictype1",
+          "virtio"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--graphicscontroller",
+          "vmsvga"
+        ]
+      ],
+      "vm_name": "nix_vm",
+      "ssh_username": "nixos",
+      "ssh_password": "secret",
+      "shutdown_command": "sudo shutdown -P now",
+      "post_shutdown_delay": "10s"
+    }
+  ],
   "provisioners": [
     {
       "type": "shell",

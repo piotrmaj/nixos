@@ -1,19 +1,7 @@
 { pkgs, lib, ...}:
 {
   # Let Home Manager install and manage itself
-  programs.home-manger-enable = true;
-
-  home.packages = with pkgs; [
-    # "discord"
-    # "faac"
-    # "postman"
-    # "slack"
-    "spotify"
-    # "steam"
-    # "steam-original"
-    # "steam-runtime"
-    # "zoom-us"
-  ];
+  programs.home-manger.enable = true;
 
   imports = [
     ./home/terminal/basic.nix

@@ -13,7 +13,7 @@
     # "steam-original"
     # "steam-runtime"
     # "zoom-us"
-  ]
+  ];
 
   imports = [
     ./home/terminal/basic.nix

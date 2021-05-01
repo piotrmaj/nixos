@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ pkgs, lib, ...}:
 {
   # Let Home Manager install and manage itself
   programs.home-manger-enable = true;

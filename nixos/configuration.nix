@@ -66,7 +66,7 @@ in {
   ] ++ [
     # X11 utilities.
     arandr # Detect and manage multiple monitors.
-    chromium # Web browser.
+    google-chrome # Web browser.
     pavucontrol # Detect and manage audio devices.
   ];
 

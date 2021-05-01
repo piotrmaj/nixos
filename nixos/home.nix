@@ -1,7 +1,7 @@
 { pkgs, lib, ...}:
 {
-  # Let Home Manager install and manage itself
-  programs.home-manger.enable = true;
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = false;
 
   imports = [
     ./home/terminal/basic.nix

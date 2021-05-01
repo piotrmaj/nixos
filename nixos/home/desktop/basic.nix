@@ -7,8 +7,8 @@ let
 in {
   imports = [
     ./basic/alacritty.nix
-    ./basic/i3.nix
     ./basic/vscode.nix
+    #./basic/i3.nix
   ];
 
   home.packages = with pkgs; [
@@ -25,11 +25,6 @@ in {
    # zathura # Lightweight pdf viewer.
    # zoom-us # Video communication.
   ];
-
-  # Ensure config gets propogated to user services.
-  xsession = {
-    enable = true;
-  };
 
   # Create common user dirs.
   xdg = {

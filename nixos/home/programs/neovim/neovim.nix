@@ -32,7 +32,7 @@ let customVimPlugins = {
   };
 };
 
-vimrc =  builtins.fetchurl {
+vimrc = pkgs.fetchurl {
   url = "https://raw.githubusercontent.com/piotrmaj/dotfiles/main/vim/.vimrc";
   name = "vimrc";
   sha256 = "1npkvldvviirnkdbwz1fi14ngjl57d8vdbm9pa5jmlxy3rlgib1a";

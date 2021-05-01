@@ -2,8 +2,7 @@
 
 set -ex
 
-# Select the machine to install.
-ln -s /mnt/etc/github/nixos/machines/nixvm.nix /mnt/etc/nixos/configuration.nix
-
+MACHINE_NAME="nixvm"
+cd /mnt/etc/github/nixos
 # 🚀
-sudo -i nixos-install --no-root-passwd
+nix-shell -p nixUnstable git --command "sudo nixos-install --flake \".#$MACHINE_NAME\" --impure --no-root-passwd --root /mnt"

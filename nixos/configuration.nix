@@ -8,9 +8,15 @@ in {
   system.stateVersion = "20.09";
 
   imports = [
-    <home-manager/nixos>
     ./xserver/xserver.nix
   ];
+
+  nix = {
+    package = pkgs.nixUnstable;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+  };
 
   nixpkgs = {
     overlays = [
@@ -59,7 +65,6 @@ in {
     docker_compose # for running docker-compose
   ] ++ [
     # X11 utilities.
-
     arandr # Detect and manage multiple monitors.
     chromium # Web browser.
     pavucontrol # Detect and manage audio devices.
@@ -128,58 +133,5 @@ in {
 
       in ["${automount_opts},credentials=/etc/nixos/smb-secrets"];
     };
-    /*"/nas/media" = {
-      device = "192.168.1.200:/mnt/storage/media";
-      fsType = "nfs";
-      options = [ "x-systemd.automount" "noauto" ];
-    };
-    "/nas/photos" = {
-      device = "192.168.1.200:/mnt/storage/photos";
-      fsType = "nfs";
-      options = [ "x-systemd.automount" "noauto" ];
-    };*/
-  };
-
-  home-manager.users.root = { pkgs, ... }: {
-    nixpkgs = {
-      overlays = [
-        (import ./pkgs/default.nix)
-      ];
-    };
-
-    /*imports = [
-      ./home/terminal/basic.nix
-    ];*/
-  };
-
-  home-manager.users.${settings.user.username} = { ... }: {
-    nixpkgs = {
-      overlays = [
-        (import ./pkgs/default.nix)
-      ];
-      config.allowUnfree = true;
-
-      # Allow certain unfree programs to be installed.
-      config = {
-        allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-         # "discord"
-         # "faac"
-         # "postman"
-         # "slack"
-          "spotify"
-         # "steam"
-         # "steam-original"
-         # "steam-runtime"
-         # "zoom-us"
-        ];
-      };
-    };
-
-    imports = [
-      ./home/terminal/basic.nix
-      ./home/desktop/basic.nix
-      ./home/desktop/keys.nix
-      ./home/programs/default.nix
-    ];
   };
 }

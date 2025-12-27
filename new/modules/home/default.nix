@@ -12,10 +12,10 @@
     ./fzf.nix                         # fuzzy finder
     ./gaming.nix                      # packages related to gaming
     ./ghostty/ghostty.nix             # terminal
+    ./i3                              # window manager
     ./git.nix                         # version control
     ./gnome.nix                       # gnome apps
     ./gtk.nix                         # gtk theme
-    ./hyprland                        # window manager
     ./kitty.nix                       # terminal
     ./lazygit.nix
     ./micro.nix                       # nano replacement

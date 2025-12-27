@@ -4,6 +4,7 @@
     ./nixpkgs.nix
     ./bootloader.nix
     ./hardware.nix
+    ./i3.nix
     ./xserver.nix
     ./network.nix
     ./nh.nix
@@ -15,7 +16,6 @@
     ./system.nix
     ./flatpak.nix
     ./user.nix
-    ./wayland.nix
     ./virtualization.nix
     ./qmk.nix
   ];

@@ -15,8 +15,8 @@
     ./git.nix                         # version control
     # ./gnome.nix                       # gnome apps
     # ./gtk.nix                         # gtk theme
-    # ./hyprland                        # window manager
-    # ./kitty.nix                       # terminal
+    ./hyprland                        # window manager
+    ./kitty.nix                       # terminal
     # ./lazygit.nix
     # ./micro.nix                       # nano replacement
     # ./nemo.nix                        # file manager

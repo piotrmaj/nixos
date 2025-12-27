@@ -102,7 +102,7 @@ in {
   };
 
   users = {
-    defaultUserShell = pkgs.zsh;
+    # defaultUserShell = pkgs.zsh;
 
     users = {
       root = {

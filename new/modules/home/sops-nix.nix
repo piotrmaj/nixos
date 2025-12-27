@@ -1,6 +1,7 @@
 { inputs, settings, ... }:
 
 {
+  # based on https://github.com/fschn90/nixos/blob/main/modules/sops.nix
   imports = [
     inputs.sops-nix.homeManagerModules.sops
   ];
@@ -18,7 +19,7 @@
     secrets."ssh/keys/id_rsa" = {
       mode = "0600";
       path = "/home/${settings.user.username}/.ssh/id_rsa";
-      owner = "${settings.user.username}";
+      owner = settings.user.username;
     };
   };
 }  

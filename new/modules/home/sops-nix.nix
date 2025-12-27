@@ -1,10 +1,10 @@
 { pkgs, config, settings, ... }:
 
 {
-
-  environment.systemPackages = with pkgs; [
+  home.packages = with pkgs; [
     sops
   ];
+
 
   sops = {
 

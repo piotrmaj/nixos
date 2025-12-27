@@ -1,10 +1,9 @@
 { pkgs, config, settings, ... }:
 
 {
-  home.packages = with pkgs; [
-    sops
+  home-manager.sharedModules = [
+    inputs.sops-nix.homeManagerModules.sops
   ];
-
 
   sops = {
 

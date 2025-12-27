@@ -1,7 +1,7 @@
 {
   pkgs,
   inputs,
-  username,
+  settings,
   host,
   ...
 }:
@@ -10,29 +10,29 @@
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
-    extraSpecialArgs = { inherit inputs username host; };
-    users.${username} = {
+    extraSpecialArgs = { inherit inputs settings host; };
+    users.${settings.user.name} = {
       imports =
         if (host == "desktop") then
           [ ./../home/default.desktop.nix ]
         else
           [ ./../home ];
-      home.username = "${username}";
-      home.homeDirectory = "/home/${username}";
+      home.username = "${settings.user.name}";
+      home.homeDirectory = "/home/${settings.user.name}";
       home.stateVersion = "26.05";
       programs.home-manager.enable = true;
     };
     backupFileExtension = "hm-backup";
   };
 
-  users.users.${username} = {
+  users.users.${settings.user.name} = {
     isNormalUser = true;
-    description = "${username}";
+    description = "${settings.user.name}";
     extraGroups = [
       "networkmanager"
       "wheel"
     ];
     shell = pkgs.zsh;
   };
-  nix.settings.allowed-users = [ "${username}" ];
+  nix.settings.allowed-users = [ "${settings.user.name}" ];
 }

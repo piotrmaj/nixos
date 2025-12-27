@@ -34,7 +34,7 @@
   outputs =
     { nixpkgs, self, ... }@inputs:
     let
-      username = "maju";
+      settings = import ./settings.nix;
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
@@ -49,7 +49,7 @@
           modules = [ ./hosts/desktop ];
           specialArgs = {
             host = "desktop";
-            inherit self inputs username;
+            inherit self inputs settings;
           };
         };
         laptop = nixpkgs.lib.nixosSystem {
@@ -57,7 +57,7 @@
           modules = [ ./hosts/laptop ];
           specialArgs = {
             host = "laptop";
-            inherit self inputs username;
+            inherit self inputs settings;
           };
         };
         vm = nixpkgs.lib.nixosSystem {
@@ -65,7 +65,7 @@
           modules = [ ./hosts/vm ];
           specialArgs = {
             host = "vm";
-            inherit self inputs username;
+            inherit self inputs settings;
           };
         };
       };

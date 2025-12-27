@@ -1,12 +1,12 @@
-{ pkgs, username, ... }:
+{ pkgs, settings, ... }:
 {
   programs.git = {
     enable = true;
 
     settings = {
       user = {
-        name = "Frost-Phoenix";
-        email = "67cyril6767@gmail.com";
+        name = settings.user.name;
+        email = settings.user.email;
       };
 
       init.defaultBranch = "main";
@@ -20,10 +20,10 @@
           "gh:"
           "https://github.com/"
         ];
-        "git@github.com:frost-phoenix/".insteadOf = "fp:";
+        # "git@github.com:frost-phoenix/".insteadOf = "fp:";
       };
 
-      core.excludesFile = "/home/${username}/.config/git/.gitignore";
+      core.excludesFile = "/home/${settings.user.name}/.config/git/.gitignore";
     };
   };
 

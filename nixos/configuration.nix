@@ -5,7 +5,7 @@ let
   settings = import ./settings.nix;
 
 in {
-  system.stateVersion = "20.09";
+  system.stateVersion = "25.11";
 
   imports = [
     ./xserver/xserver.nix

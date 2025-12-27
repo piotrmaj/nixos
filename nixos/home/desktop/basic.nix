@@ -7,7 +7,7 @@ let
 in {
   imports = [
     ./basic/alacritty.nix
-    ./basic/vscode.nix
+    # ./basic/vscode.nix
     #./basic/i3.nix
   ];
 

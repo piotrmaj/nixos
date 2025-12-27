@@ -1,17 +1,17 @@
 { inputs, pkgs, ... }:
 {
-  imports = [ inputs.zen-browser.homeModules.beta ];
+  # Enable Vivaldi
+  programs.vivaldi.enable = true;
 
-  programs.zen-browser.enable = true;
-
+  # Set Vivaldi as the default for various MIME types and URL schemes
   xdg.mimeApps =
     let
       value =
         let
           system = pkgs.stdenv.hostPlatform.system;
-          zen-browser = inputs.zen-browser.packages.${system}.beta;
+          vivaldi = pkgs.vivaldi; # Use Vivaldi from nixpkgs
         in
-        zen-browser.meta.desktopFileName;
+        vivaldi.meta.desktopFileName;
 
       associations = builtins.listToAttrs (
         map (name: { inherit name value; }) [

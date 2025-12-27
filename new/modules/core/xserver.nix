@@ -8,7 +8,7 @@
 
     displayManager.autoLogin = {
       enable = true;
-      user = "${settings.user.name}";
+      user = "${settings.user.username}";
     };
     libinput = {
       enable = true;

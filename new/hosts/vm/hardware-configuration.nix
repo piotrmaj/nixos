@@ -6,9 +6,19 @@
 {
   imports = [ ];
 
-  boot.initrd.availableKernelModules = [ "ata_piix" "ohci_pci" "ehci_pci" "ahci" "sd_mod" "sr_mod" ];
+  boot.initrd.availableKernelModules = [ 
+    "ata_piix" 
+    "ohci_pci"
+    "ehci_pci"
+    "ahci"
+    "sd_mod"
+    "sr_mod"
+    "vboxguest"
+    "vboxvideo"
+    "vwgfx" 
+  ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [ "kvm-intel" "vboxguest" "vboxvideo" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =

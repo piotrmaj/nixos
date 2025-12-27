@@ -112,7 +112,8 @@
     };
 
     xwayland = {
-      force_zero_scaling = true;
+      # Comment out to check if it's a problem for Virtualbox
+      # force_zero_scaling = true;
     };
   };
 }

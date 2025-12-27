@@ -31,13 +31,13 @@ in {
 
   time.timeZone = "Europe/Warsaw";
 
-  hardware = {
-    # Enable sound.
-    pulseaudio = {
-      enable = true;
-      package = pkgs.pulseaudioFull;
-      support32Bit = true;
-    };
+  services.pulseaudio.enable = false;  # Must be disabled
+
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true; # Provides PulseAudio compatibility through PipeWire
   };
 
   networking = {

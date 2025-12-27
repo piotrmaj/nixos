@@ -1,17 +1,10 @@
 { inputs, pkgs, ... }:
 {
-  # Enable Vivaldi
   programs.vivaldi.enable = true;
 
-  # Set Vivaldi as the default for various MIME types and URL schemes
   xdg.mimeApps =
     let
-      value =
-        let
-          system = pkgs.stdenv.hostPlatform.system;
-          vivaldi = pkgs.vivaldi; # Use Vivaldi from nixpkgs
-        in
-        vivaldi.meta.desktopFileName;
+      value = "vivaldi-stable.desktop";
 
       associations = builtins.listToAttrs (
         map (name: { inherit name value; }) [

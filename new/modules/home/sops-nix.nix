@@ -1,9 +1,9 @@
-{ pkgs, config, settings, ... }:
+{ inputs, settings, ... }:
 
 {
-  programs.sops = {
-    enable = true;
-  };
+  imports = [
+    inputs.sops-nix.homeManagerModules.sops
+  ];
 
   sops = {
 

@@ -16,9 +16,9 @@
     age.sshKeyPaths = [ "/etc/ssh/id_rsa" ];
     age.generateKey = true;
 
-    secrets."ssh/keys/id_rsa" = {
-      mode = "0600";
-      path = "/home/${settings.user.username}/.ssh/id_rsa";
-    };
+    # secrets."ssh/keys/id_rsa" = {
+    #   mode = "0600";
+    #   path = "/home/${settings.user.username}/.ssh/id_rsa";
+    # };
   };
 }  

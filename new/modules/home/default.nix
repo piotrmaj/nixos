@@ -28,6 +28,7 @@
     ./rofi/rofi.nix                   # launcher
     # ./../../scripts/scripts.nix       # personal scripts
     ./ssh.nix                         # ssh config
+    ./sops-nix.nix                    # storing secrets in git
     ./spicetify.nix                   # spotify client
     ./superfile/superfile.nix         # terminal file manager
     ./swaylock.nix                    # lock screen
